@@ -19,7 +19,7 @@ public class CorsConfig {
         config.setAllowCredentials(true);
         config.setAllowedOrigins(List.of(
                 "http://localhost:5173",
-                "https://YOUR-VERCEL-APP.vercel.app"
+                "https://gst-generator-frontend-qvp3ggyuh-md-sm-projects.vercel.app"
         ));
 
         config.setAllowedHeaders(List.of("*"));
