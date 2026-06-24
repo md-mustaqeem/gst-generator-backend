@@ -8,6 +8,41 @@ import org.springframework.web.filter.CorsFilter;
 
 import java.util.List;
 
+//@Configuration
+//public class CorsConfig {
+//
+//    @Bean
+//    public CorsFilter corsFilter() {
+//
+//        CorsConfiguration config = new CorsConfiguration();
+//
+//        config.setAllowCredentials(true);
+//        config.setAllowedOrigins(List.of(
+//                "http://localhost:5173",
+//                "https://gst-generator-frontend-qvp3ggyuh-md-sm-projects.vercel.app"
+//        ));
+//
+//        config.setAllowedHeaders(List.of("*"));
+//        config.setAllowedMethods(List.of(
+//                "GET",
+//                "POST",
+//                "PUT",
+//                "DELETE",
+//                "PATCH",
+//                "OPTIONS"
+//        ));
+//        config.setExposedHeaders(List.of("Authorization"));
+//
+//        UrlBasedCorsConfigurationSource source =
+//                new UrlBasedCorsConfigurationSource();
+//
+//        source.registerCorsConfiguration("/**", config);
+//
+//        return new CorsFilter(source);
+//    }
+//}
+
+
 @Configuration
 public class CorsConfig {
 
@@ -17,12 +52,14 @@ public class CorsConfig {
         CorsConfiguration config = new CorsConfiguration();
 
         config.setAllowCredentials(true);
-        config.setAllowedOrigins(List.of(
+
+        config.setAllowedOriginPatterns(List.of(
                 "http://localhost:5173",
-                "https://gst-generator-frontend-qvp3ggyuh-md-sm-projects.vercel.app"
+                "https://*.vercel.app"
         ));
 
         config.setAllowedHeaders(List.of("*"));
+
         config.setAllowedMethods(List.of(
                 "GET",
                 "POST",
@@ -31,6 +68,7 @@ public class CorsConfig {
                 "PATCH",
                 "OPTIONS"
         ));
+
         config.setExposedHeaders(List.of("Authorization"));
 
         UrlBasedCorsConfigurationSource source =
